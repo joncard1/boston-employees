@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Jonathan Card for Taikametrics</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+        <script src="taikametrics.js"></script>
+    <head>
+    <body ng-app="taikametrics" ng-controller="ViewAverageEarnings" class="container-fluid">
+        <h1>Welcome to the Jonathan Card portal to the Boston Employees Earnings Report</h1>
+        <div class="row">
+            <div class="border col-md-2"></div>
+            <div class="col-md-2">Please select a job title</div>
+            <div class="col-md-8">
+                <select ng-model="selectedOption" ng-options="option.title for option in selectList | orderBy:'title'" ng-change="onChangeTitle()">
+                    <option value="">-- No selection --</option>
+                </select>
+            </div>
+        </div>
+	<div ng-if="avgEarnings != ''" class="row">
+        <div class="border col-md-2"></div>
+        <div ng-bind="avgEarnings | currency: $ : 2" class="col-md-10">
+	</div>
+    </body>
+</html>
